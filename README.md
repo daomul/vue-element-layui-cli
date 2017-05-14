@@ -40,8 +40,23 @@ $ npm start                     # 运行
 
 ## 模版和业务逻辑，提高了可扩展性和可维护性
 1. components是UI组件，模版文件通过外部文件引入
+
 2. views是容器组件，模版文件通过外部文件引入
 
+```html
+<input type="text" class="layui-input" :id="dateId" @click="changeDate(dateId)" v-model="currentValue">
+
+```
+
+```javascript
+<template src='./XBLayer.html'>
+</template>
+<script>
+    export default {
+        ...
+    }
+</script>
+```
 ## 样式
 采用scss模式，样式文件可以通过外部文件引入，例如：
 

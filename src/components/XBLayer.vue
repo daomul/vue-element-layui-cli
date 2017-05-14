@@ -1,7 +1,4 @@
-<template>
-  <div :id="layerId">
-      <slot></slot>
-  </div>
+<template src='./XBLayer.html'>
 </template>
 <script>
     export default {

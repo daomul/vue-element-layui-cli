@@ -1,9 +1,4 @@
-<template >
-  <table class="ym-table table-hover">
-      <slot name="thead"></slot>
-      <slot name="tbody"></slot>
-  </table>
-
+<template src='./XBTable.html'>
 </template>
 
 <style>
