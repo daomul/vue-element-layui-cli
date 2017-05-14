@@ -1,0 +1,48 @@
+<div style="width:100%;height:100%;" class="layui-tab-brief">
+        <div style="margin:10px;">
+            <!-- <router-link :to="{path:'/admin/article/'+artType+'/edit/add?title='+pageTitle}" class="layui-btn layui-btn-small">
+                <i class="layui-icon"></i> 添加{{pageTitle}}
+            </router-link> -->
+            <a class="layui-btn layui-btn-small" @click="openEditLayer">
+                <i class="layui-icon"></i> 添加订单
+            </a>
+        </div>
+        <fieldset class="layui-elem-field">
+            <legend>订单列表</legend>
+            <div class="layui-field-box">
+                <xb-table>
+                    <thead slot="thead">
+                        <tr>
+                            <th>订单编号</th>
+                            <th width="180">送货地址</th>
+                            <th>下单人</th>
+                            <th>下单日期</th>
+                            <th>数量</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody slot="tbody">
+                        <tr v-for="item,index in items">
+                            <!-- v-text="getIndex(index,pageIndex,pageSize)" -->
+                            <td >{{item.orderid}}</td>
+                            <td>
+                              {{item.addr}}
+                            </td>
+                            <td>{{item.name}}</td>
+                            <td>
+                                <bdi class="label label-success">{{item.date}}</bdi>
+                            </td>
+                            <td>
+                                <a href="#" target="_blank">{{item.age}}</a>
+                            </td>
+                            <td>
+                                <!-- <button class="layui-btn layui-btn-small" :onclick="'javascript:layer.msg('+item+')'"><i class="layui-icon"></i></button> -->
+                                <button class="layui-btn layui-btn-danger layui-btn-small" :onclick="'javascript:layer.msg('+item.orderid+')'"><i class="layui-icon"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </xb-table>
+                <xb-pager :page-index="pageIndex" totalPage="3" groups="10" @pageHandler="loadData"></xb-pager>
+            </div>
+        </fieldset>
+    </div>

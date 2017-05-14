@@ -1,0 +1,41 @@
+<div class="layui-tab-brief">
+    <blockquote class="layui-elem-quote">
+
+    </blockquote>
+
+    <div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">单行输入框</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" placeholder="单行输入框" v-model="model.InputTxt" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">日期输入</label>
+            <div class="layui-input-block">
+                <xb-date v-model="model.InputDate" :isTime="false" dateFormat="YYYY-MM-DD"></xb-date>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" @click="save">立即提交</button>
+                <button class="layui-btn layui-btn-primary" @click="$router.go(-1)">返回</button>
+            </div>
+        </div>
+         <pre class="layui-code" v-if="isSubmit" height="100" id="codeJson">
+            {{JSON.stringify(model)}}
+         </pre>
+    </div>
+    <!-- <ym-layer v-if="isSubmit" :options="layerOptions" @cancelHandler="cancelHandler" >
+        <div>
+            <ul class="layui-tab-title site-demo-title" style="margin-bottom:10px;">
+                <li class="layui-this">提交的数据</li>
+            </ul>
+            <pre class="layui-code" v-if="isSubmit" height="100" id="codeJson">
+                {{JSON.stringify(model)}}
+            </pre>
+        </div>
+    </ym-layer> -->
+    <!--<ym-loading :show="isSubmit" :type="0"></ym-loading>-->
+</div>
