@@ -1,53 +1,101 @@
 <template src='./orderlist.html'></template>
 
 <script>
-	import util from '../../common/js/util';
+    import util from '../../common/js/util';
+    import GzTable from '../../components/GZTable';
 	import { getOrederListPage, removeOrder, batchRemoveOrder, editOrder, addOrder } from '../../api/api';
-
 	export default {
+        components: {
+            GzTable
+        },
 		data() {
-			return {
-				filters: {
-					name: ''
-				},
-				orders: [],
-				total: 0,
-				page: 1,
-				listLoading: false,
-				sels: [],//列表选中列
+            let newVar = {
+                filters: {
+                    name: ''
+                },
+                orders: [],
+                total: 0,
+                page: 1,
+                listLoading: false,
+                sels: [],//列表选中列
 
-				editFormVisible: false,//编辑界面是否显示
-				editLoading: false,
-				editFormRules: {
-					name: [
-						{ required: true, message: '请输入姓名', trigger: 'blur' }
-					]
-				},
-				//编辑界面数据
-				editForm: {
-					id: 0,
-					name: '',
-					age: 0,
-					date: '',
-					addr: ''
-				},
+                editFormVisible: false,//编辑界面是否显示
+                editLoading: false,
+                editFormRules: {
+                    name: [
+                        { required: true, message: '请输入姓名', trigger: 'blur' }
+                    ]
+                },
+                //编辑界面数据
+                editForm: {
+                    id: 0,
+                    name: '',
+                    age: 0,
+                    date: '',
+                    addr: ''
+                },
 
-				addFormVisible: false,//新增界面是否显示
-				addLoading: false,
-				addFormRules: {
-					name: [
-						{ required: true, message: '请输入姓名', trigger: 'blur' }
-					]
-				},
-				//新增界面数据
-				addForm: {
-					name: '',
-					age: 0,
-					date: '',
-					addr: ''
-				}
+                addFormVisible: false,//新增界面是否显示
+                addLoading: false,
+                addFormRules: {
+                    name: [
+                        { required: true, message: '请输入姓名', trigger: 'blur' }
+                    ]
+                },
+                //新增界面数据
+                addForm: {
+                    name: '',
+                    age: 0,
+                    date: '',
+                    addr: ''
+                }
 
-			}
+            };
+
+            let newVar2 = newVar;
+
+            return {
+                filters: {
+                    name: ''
+                },
+                orders: [],
+                total: 0,
+                page: 1,
+                listLoading: false,
+                sels: [],//列表选中列
+
+                editFormVisible: false,//编辑界面是否显示
+                editLoading: false,
+                editFormRules: {
+                    name: [
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
+                    ]
+                },
+                //编辑界面数据
+                editForm: {
+                    id: 0,
+                    name: '',
+                    age: 0,
+                    date: '',
+                    addr: ''
+                },
+
+                addFormVisible: false,//新增界面是否显示
+                addLoading: false,
+                addFormRules: {
+                    name: [
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
+                    ]
+                },
+                //新增界面数据
+                addForm: {
+                    name: '',
+                    age: 0,
+                    date: '',
+                    addr: ''
+                }
+
+            }
 		},
 		methods: {
 			handleCurrentChange(val) {
