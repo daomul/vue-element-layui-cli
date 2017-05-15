@@ -76,3 +76,7 @@ $ npm start                     # 运行
 
 ## 打包
 采用webpack 打包构建
+
+## TODO:
+
+引入vuex,使用单一状态树

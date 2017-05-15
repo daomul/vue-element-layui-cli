@@ -5,37 +5,37 @@
     import XbDate from '../../components/XBDate'
     import XbLayer from '../../components/XBLayer'
     export default {
-        components:{
+        components: {
             XbDate,
             XbLayer,
         },
         data(){
             return {
-                model:{
-                    InputTxt:'我是文本框的值',//必须有初始化值
-                    InputDate:'2016-11-29'
+                model: {
+                    InputTxt: '我是文本框的值',//必须有初始化值
+                    InputDate: '2016-11-29'
                 },
-                isSubmit:false,
-                pageTitle:'',
+                isSubmit: false,
+                pageTitle: '',
             }
         },
         created(){
             this.setTitle()
         },
-        watch:{
-            '$route':function(){
+        watch: {
+            '$route': function () {
                 this.setTitle()
             }
         },
-        methods:{
+        methods: {
             setTitle(){
-                let self=this;
-                self.pageTitle=self.$route.query.title||''
-                self.$parent.readyShowContent=self.$route.query.readyShowContent
+                let self = this;
+                self.pageTitle = self.$route.query.title || ''
+                self.$parent.readyShowContent = self.$route.query.readyShowContent
             },
             save(){
-                let self=this;
-                self.isSubmit=true
+                let self = this;
+                self.isSubmit = true
                 console.log(self.model);
 
             },
